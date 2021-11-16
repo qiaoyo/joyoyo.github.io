@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/several%20coding%20methods%20of%20SNN/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>about - MkLorum</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">MkLorum</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">about</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#several-coding-methods-of-snn" class="nav-link">several coding methods of SNN</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-rate-codingpoisson-coding" class="nav-link">1.  rate coding(Poisson coding)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-temporal-coding" class="nav-link">2.  temporal coding</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#loihi" class="nav-link">loihi相关项目</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">会议和期刊</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">会议</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">期刊</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="several-coding-methods-of-snn">several coding methods of SNN</h1>
+<h2 id="1-rate-codingpoisson-coding">1.  rate coding(Poisson coding)</h2>
+<p>​       最常用的编码方式。将每一个输入像素转换为脉冲序列，比较典型的一种是泊松分布的脉冲序列。参数只有一个啦，就是λ，根据图像的灰度值算出。然后一些预设的参数包括<code>time</code>，<code>dt</code>。在<code>bindsnet</code>，<code>brian2</code>的源码中都找到了<code>possionspike</code>的源码。</p>
+<p><code>baian2/brian2/input/spikegeneratorgroup.py</code></p>
+<p><code>bindsnet/encoding/encodings.py</code></p>
+<pre><code class="language-python">class SpikeGeneratorGroup(Group, CodeRunner, SpikeSource):
+</code></pre>
+<pre><code class="language-python">def poisson(
+        datum: torch.Tensor,
+        time: int,
+        dt: float = 1.0,
+        device=&quot;cpu&quot;,
+        approx=False,
+        **kwargs
+) -&gt; torch.Tensor:
+</code></pre>
+<p>​       <code>bindsnet</code>的源代码里还分了<code>bernoulli</code>和<code>possion</code>两种，大概是因为泊松分布是伯努利分布在<code>n</code>很大而<code>p</code>很小时的情况吧，看情况使用。</p>
+<pre><code class="language-python">def single(#sparsity决定，大于该值的是1，小于的是0，默认是中位数
+    datum: torch.Tensor,
+    time: int,
+    dt: float = 1.0,
+    sparsity: float = 0.5,
+    device=&quot;cpu&quot;,
+    **kwargs,
+) -&gt; torch.Tensor:
+</code></pre>
+<pre><code class="language-python">def bernoulli(#每个输入数据由max_prob决定，每个pixel有max_prob的概率为1
+    datum: torch.Tensor,
+    time: Optional[int] = None,
+    dt: float = 1.0,
+    device=&quot;cpu&quot;,
+    **kwargs,
+) -&gt; torch.Tensor:
+    max_prob = kwargs.get(&quot;max_prob&quot;, 1.0)
+    spikes = torch.bernoulli(max_prob * datum.repeat([time, 1]))
+</code></pre>
+<pre><code class="language-python">def poisson(
+    datum: torch.Tensor, time: int, dt: float = 1.0, device=&quot;cpu&quot;, **kwargs
+) -&gt; torch.Tensor:
+
+    rate = torch.zeros(size, device=device)
+    rate[datum != 0] = 1 / datum[datum != 0] * (time / dt)
+    #根据概率产生脉冲序列
+    dist = torch.distributions.Poisson(rate=rate)
+    intervals = dist.sample(sample_shape=torch.Size([time + 1]))
+    intervals[:, datum != 0] += (intervals[ :, datum != 0] == 0).float()
+    times = torch.cumsum(intervals, dim=0).long()
+    spikes = torch.zeros(time + 1, size, device=device).byte()
+    spikes[times, torch.arange(size)] = 1
+</code></pre>
+<p>$$
+P(X=k)=\frac{\lambda^k}{k!}*e^{-\lambda}
+$$</p>
+<h2 id="2-temporal-coding">2.  temporal coding</h2>
+<p>​       时差编码：对一段沿时间变化的数据编码</p>
+<pre><code class="language-python">diff[i]=danum[i+1]-datum[i] for i in range(size-1):
+threshold=diff.mean()+diff.std()
+for i in range(size-1):
+    diff[i]=1 if diff[i]&gt;threshold
+    diff[i]=-1 if diff[i]&lt;-threshold
+    diff[i]=0 else
+</code></pre>
+<p>​       <code>bindsnet</code>的源码中还给了一种rank_order序列的生成方法如下：</p>
+<pre><code class="language-python">def rank_order(#每个pixel只有一个1，这个1出现的时间取决于它的值，越大，出现的越早
+        datum: torch.Tensor, time: int, dt: float = 1.0, **kwargs
+) -&gt; torch.Tensor:
+    times[datum != 0] = 1 / datum[datum != 0]
+    times *= time / times.max() 
+    if 0 &lt; times[i] &lt; time:
+            spikes[times[i] - 1, i] = 1
+</code></pre>
+<p>​       Time-to-first spike coding
+$$
+F_ij=T*cos^2(\frac{p_ij}{p_max})
+$$</p>
+<p>​       population rank order coding</p>
+<p>​       对于每个神经元，构造一个GRF（高斯感知域）来编码它。这个GRF中包括p个神经元，每个神经元又有一个
+$$
+(\mu_{ij},\sigma_{ij})
+$$</p>
+<p>$$
+A_{ij}=e^{-\frac{(s_i-\mu_{ij})^2}{2*\sigma_ij^2}}
+$$</p>
+<p>请教一个问题，在population coding的时候，对一张图片编码，假如GRF是一个5<em>5的范围，然后对其中的每一个pixel根据
+$$
+A_{ij}=e^{-\frac{(s_i-\mu_{ij})^2}{2</em>\sigma_ij^2}}
+$$
+计算出一个Aij值（其中mu和sigma是这25个点的均值和方差），这个Aij值反映了经过多久这个pixel才能产生一个脉冲。</p>
+<p>这个理解对不对啊？还有就是如果是这样的话，这个5*5的范围应该怎么取？包括一个pixel的方框有很多取法啊。。</p>
+<h1 id="loihi">loihi相关项目</h1>
+<ol>
+<li>nengo models on  Loihi </li>
+</ol>
+<p><code>(https://github.com/nengo/nengo-loihi)</code></p>
+<ol>
+<li>SNN toolbox ,a framework to transform rate-based ANN to SNN</li>
+</ol>
+<p><code>(https://github.com/NeuromorphicProcessorProject/snn_toolbox)</code></p>
+<ol>
+<li><strong>S</strong>piking <strong>D</strong>eep <strong>D</strong>eterministic <strong>P</strong>olicy <strong>G</strong>radient for mapless navigation 基于强化学习的无地图导航</li>
+</ol>
+<p><code>(https://github.com/combra-lab/spiking-ddpg-mapless-navigation)</code></p>
+<ol>
+<li>reservoir computing framework for loihi 储备池计算</li>
+</ol>
+<p><code>(https://github.com/sagacitysite/pelenet)</code></p>
+<ol>
+<li>An Efficient Spiking Neural Network for Event-Based Autonomous Cars 基于事件的自动驾驶</li>
+</ol>
+<p><code>(https://github.com/albertopolito/CarSNN)</code></p>
+<ol>
+<li>
+<p>Project of the European Organization for Nuclear Research. process signal from CMS detector to determine the particle<code>(https://github.com/Borzyszkowski/SNN-CMS)</code></p>
+</li>
+<li>
+<p>head pose estimation of the iCub robot 机器人头部姿态估计</p>
+</li>
+</ol>
+<p><code>(https://github.com/RaphaelaK/head_pose_icub_loihi)</code></p>
+<ol>
+<li>multi-arm bandit using snn</li>
+</ol>
+<p><code>(https://github.com/wilkieolin/loihi_bandit)</code></p>
+<ol>
+<li>
+<p>The neuromorphic PID for altitude control of MAVs with Loihi 飞行器姿态控制</p>
+</li>
+<li>
+<p>spikinbg oculomotor network for robotic head control 模仿眼动实现机器人头部控制</p>
+<p><code>(https://github.com/combra-lab/spiking-oculomotor-head-control)</code></p>
+</li>
+</ol>
+<h1 id="_1">会议和期刊</h1>
+<h2 id="_2">会议</h2>
+<table>
+<thead>
+<tr>
+<th align="center">等级</th>
+<th align="center">名称</th>
+<th align="center">时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">B类</td>
+<td align="center"><a href="http://www.call4papers.cn:8080/detail.jsp?url=C211017018">ECAI : European Conference on Artificial Intelligence</a></td>
+<td align="center">2022-01-14</td>
+</tr>
+<tr>
+<td align="center">C类</td>
+<td align="center"><a href="http://www.call4papers.cn:8080/detail.jsp?url=C211017021">ICPR : International Conference on Pattern Recognition</a></td>
+<td align="center">2022-01-17</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">期刊</h2>
+<table>
+<thead>
+<tr>
+<th align="center">等级</th>
+<th align="center">期刊名称</th>
+<th align="center">专刊名称</th>
+<th align="center">时间</th>
+<th align="center">影响因子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">B类</td>
+<td align="center">Neural Networks</td>
+<td align="center"><a href="http://www.call4papers.cn:8080/detail.jsp?url=J210910006">Lifelong Learning</a></td>
+<td align="center">2022-02-28</td>
+<td align="center">5.535</td>
+</tr>
+<tr>
+<td align="center">B类</td>
+<td align="center">Pattern Recognition</td>
+<td align="center"><a href="http://www.call4papers.cn:8080/detail.jsp?url=J210909016">Open World Robust Pattern Recognition</a></td>
+<td align="center">2022-01-30</td>
+<td align="center">7.196</td>
+</tr>
+<tr>
+<td align="center">B类</td>
+<td align="center"></td>
+<td align="center"><a href="http://www.call4papers.cn:8080/detail.jsp?url=J211012020">Practical Deep Learning in the Wild</a></td>
+<td align="center">2022-11-01</td>
+<td align="center">7.196</td>
+</tr>
+<tr>
+<td align="center">工程技术 - 2区</td>
+<td align="center">MEASUREMENT</td>
+<td align="center">Time-to-Digital Converters, Time-Mode Approaches and Applications：（Temporal processing in Spiking Neural Networks）</td>
+<td align="center">2022-02-28</td>
+<td align="center">3.364</td>
+</tr>
+<tr>
+<td align="center">计算机科学 - 2区</td>
+<td align="center">ISA TRANSACTIONS</td>
+<td align="center">Advances in Computational Intelligence for Perception and Decision Making for Autonomous Systems</td>
+<td align="center">2022-04-05</td>
+<td align="center">4.305</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
