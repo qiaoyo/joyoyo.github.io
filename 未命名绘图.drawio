@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-14T09:36:30.495Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0" etag="aDXK2HeliO31bMVk8APA" version="21.3.8" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-14T09:36:38.073Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0" etag="fqUlFsvcaFqGW7knODoE" version="21.3.8" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
     <mxGraphModel dx="1975" dy="1054" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -57,7 +57,7 @@
         </mxCell>
         <UserObject label="技术筹备" name="Tessa Miller" position="CFO" location="Office 1" email="me@example.com" placeholders="1" link="https://www.draw.io" id="TravhF-JC82XG-4IXTbQ-35">
           <mxCell style="label;image=https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-3-128.png;whiteSpace=wrap;html=1;rounded=0;glass=0;treeMoving=1;treeFolding=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
-            <mxGeometry x="840" y="180" width="180" height="70" as="geometry" />
+            <mxGeometry x="850" y="180" width="180" height="70" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="TravhF-JC82XG-4IXTbQ-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="dNxyNK7c78bLwvsdeMH5-12" target="TravhF-JC82XG-4IXTbQ-37" parent="dNxyNK7c78bLwvsdeMH5-11">
