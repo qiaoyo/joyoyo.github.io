@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-14T09:42:12.302Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0" etag="c4ID-BDnR30bO1ISJKt-" version="21.3.8" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-14T09:42:19.944Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0" etag="g1axBh5s2adKp46xgcVO" version="21.3.8" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
     <mxGraphModel dx="756" dy="1054" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -144,7 +144,7 @@
           <mxGeometry x="510" y="270" width="290" height="60" as="geometry" />
         </mxCell>
         <mxCell id="TravhF-JC82XG-4IXTbQ-58" value="整合现有虚拟人技术，研究语音识别、自然语言处理、图像处理等、测试人物平台，可靠性" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
-          <mxGeometry x="920" y="270" width="290" height="60" as="geometry" />
+          <mxGeometry x="920" y="270" width="510" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
