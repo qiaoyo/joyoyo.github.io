@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-14T09:35:47.071Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0" etag="LmRmOgWIVI25-nDF5NfC" version="21.3.8" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-14T09:36:23.897Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0" etag="5IACZylgNUACCSdJMcup" version="21.3.8" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
     <mxGraphModel dx="1975" dy="1054" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -6,6 +6,15 @@
         <mxCell id="1" parent="0" />
         <mxCell id="dNxyNK7c78bLwvsdeMH5-11" value="Orgchart" style="swimlane;html=1;startSize=20;horizontal=1;containerType=tree;glass=0;" parent="1" vertex="1">
           <mxGeometry x="70" y="100" width="1970" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="TravhF-JC82XG-4IXTbQ-49" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
+          <mxGeometry x="830" y="165" width="630" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="TravhF-JC82XG-4IXTbQ-48" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
+          <mxGeometry x="430" y="165" width="390" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="TravhF-JC82XG-4IXTbQ-47" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
+          <mxGeometry x="20" y="165" width="390" height="195" as="geometry" />
         </mxCell>
         <UserObject label="虚拟人直播项目" name="Tessa Miller" position="CFO" location="Office 1" email="me@example.com" placeholders="1" link="https://www.draw.io" id="dNxyNK7c78bLwvsdeMH5-12">
           <mxCell style="label;image=https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-3-128.png;whiteSpace=wrap;html=1;rounded=0;glass=0;treeMoving=1;treeFolding=1;" parent="dNxyNK7c78bLwvsdeMH5-11" vertex="1">
@@ -116,15 +125,6 @@
             <mxGeometry x="1490" y="180" width="180" height="70" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="TravhF-JC82XG-4IXTbQ-47" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
-          <mxGeometry x="20" y="165" width="390" height="195" as="geometry" />
-        </mxCell>
-        <mxCell id="TravhF-JC82XG-4IXTbQ-48" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
-          <mxGeometry x="430" y="165" width="390" height="195" as="geometry" />
-        </mxCell>
-        <mxCell id="TravhF-JC82XG-4IXTbQ-49" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
-          <mxGeometry x="830" y="165" width="860" height="195" as="geometry" />
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
